@@ -41,7 +41,14 @@ else
 }
 
 mysqli_report(MYSQLI_REPORT_OFF);
-$conn = @mysqli_connect($hostname, $dbusername, $dbpassword, $dbname, $port);
+$conn = mysqli_init();
+if ($conn) {
+    mysqli_options($conn, MYSQLI_OPT_CONNECT_TIMEOUT, 3);
+    $connected = @mysqli_real_connect($conn, $hostname, $dbusername, $dbpassword, $dbname, $port);
+    if (!$connected) {
+        $conn = false;
+    }
+}
 if (!$conn) {
     $err = mysqli_connect_error();
     if ($isVercel) {
