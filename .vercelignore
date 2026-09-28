@@ -1,0 +1,26 @@
+# Large archives
+*.zip
+*.tar.gz
+*.rar
+public_html (1).zip
+SND.zip
+sndtrading_cleaned_ready_to_upload.zip
+
+# Attacker quarantine
+hacker attack/
+hacker attack/**
+
+# Logs
+error_log
+admin/error_log
+admin/ajax/error_log
+*.log
+
+# Git & OS
+.git
+.DS_Store
+*/.DS_Store
+
+# Temporary
+.htaccess.phpupgrader.*
+cookies.txt
