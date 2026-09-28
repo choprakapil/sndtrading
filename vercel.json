@@ -1,8 +1,8 @@
 {
   "version": 2,
   "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.3"
+    "api/*.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
@@ -17,6 +17,10 @@
     {
       "src": "/(.*\\.(?:css|js|jpg|jpeg|jfif|png|gif|svg|ico|webp|avif|woff|woff2|ttf|eot|pdf|txt|xml))$",
       "dest": "/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
