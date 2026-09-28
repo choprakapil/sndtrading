@@ -1,0 +1,23 @@
+# Archives & Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Quarantine attacker folder
+hacker attack/
+
+# Logs & System
+error_log
+admin/error_log
+admin/ajax/error_log
+*.log
+.DS_Store
+*/.DS_Store
+
+# Temporary / Upgrader files
+.htaccess.phpupgrader.*
+cookies.txt
+
+# Vercel & Node
+.vercel
+node_modules

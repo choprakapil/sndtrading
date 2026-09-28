@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.3",
+      "includeFiles": "{*.php,inc/**,admin/**,mail/**}"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(assets/.*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(uploads/.*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.(?:css|js|jpg|jpeg|jfif|png|gif|svg|ico|webp|avif|woff|woff2|ttf|eot|pdf|txt|xml))$",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ]
+}

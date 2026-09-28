@@ -1,0 +1,59 @@
+RewriteEngine On
+ErrorDocument 404 /404.php
+ErrorDocument 403 /404.php
+
+# Redirect trailing slashes on non-directories to canonical non-slash URL (e.g. /about/ -> /about)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/+$
+RewriteRule ^ %1 [R=301,L]
+
+# Rewrite rules for dynamic sections
+RewriteRule ^blogs/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ blogs-details.php?bburl=$1&bpurl=$2 [QSA,L]
+RewriteRule ^blogs/([a-zA-Z0-9_-]+)$ blogs.php?burl=$1 [QSA,L]
+RewriteRule ^product/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ product-detail.php?curl=$1&purl=$2 [QSA,L]
+RewriteRule ^products/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ product.php?curl=$1&surl=$2 [QSA,L]
+RewriteRule ^products/([a-zA-Z0-9_-]+)$ product.php?purl=$1 [QSA,L]
+RewriteRule ^service/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ service-detail.php?curl=$1&purl=$2 [QSA,L]
+RewriteRule ^service/([a-zA-Z0-9_-]+)$ service-detail.php?purl=$1 [QSA,L]
+RewriteRule ^turnkey/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ turnkey-detail.php?curl=$1&purl=$2 [QSA,L]
+RewriteRule ^turnkey/([a-zA-Z0-9_-]+)$ turnkey-detail.php?purl=$1 [QSA,L]
+RewriteRule ^team/([a-zA-Z0-9_-]+)$ team-detail.php?turl=$1 [QSA,L]
+
+# Clean URL rewriting for .php files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+   php_flag display_errors Off
+   php_value max_execution_time 60
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 512M
+   php_value post_max_size 516M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/tmp"
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 60
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 512M
+   php_value post_max_size 516M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/tmp"
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
